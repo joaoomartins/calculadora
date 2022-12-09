@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style2" rel="stylesheet" href="style.css">
+    <script
+	    src="https://code.jquery.com/jquery-3.6.1.js"
+		integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+		crossorigin="anonymous">
+    </script>
+    
+    <title>Calculadora</title>
+</head>
+<body>
+     <!--display
+            AC / 
+            789* 
+            456-
+            123+
+        -->
+     <div  class="calculadora">
+        
+       <div class="display">
+            <input id="display" placeholder="0" disabled>
+            <h2 id="ecra"></h2>
+        </div><br>
+
+        <!--BOTOES :/-->
+
+        <div>
+            <button class="ac"  onclick="limpar()">AC</button>
+            <button class="delete" onclick="del()">Del</button>
+        </div><br>
+
+        <div class="linhas">
+            <button onclick="adicionar_numero(7)">7</button>
+            <button onclick="adicionar_numero(8)">8</button>
+            <button onclick="adicionar_numero(9)">9</button>
+            <button class="operacao" onclick="adicionar_numero('/')">/</button>
+        </div>
+
+        <div class="linhas">
+            <button onclick="adicionar_numero(4)">4</button>
+            <button onclick="adicionar_numero(5)">5</button>
+            <button onclick="adicionar_numero(6)">6</button>   
+            <button class="operacao" onclick="adicionar_numero('*')">*</button>       
+        </div>
+
+        <div class="linhas">
+            <button onclick="adicionar_numero(1)">1</button>
+            <button onclick="adicionar_numero(2)">2</button>
+            <button onclick="adicionar_numero(3)">3</button>
+            <button class="operacao" onclick="adicionar_numero('-')">-</button>
+        </div>
+
+        <div class="linhas">
+            <button onclick="adicionar_numero(0)">0</button>
+            <button onclick="adicionar_numero('.')">.</button>
+            <button class="total" onclick="total()">=</button>
+            <button class="operacao" onclick="adicionar_numero('+')">+</button>
+        </div>
+        <br>
+        <div>
+        <a id="estiloso" class="trocastyle" href="style2.css">Modo Branco</a>
+
+        <a id="estiloso2" hidden class="trocastyle" href="style.css">Modo Escuro</a>
+        </div>
+     </div>
+     
+     <script>
+        $(document).ready(function() {
+
+            $("#estiloso").click(function(event){
+                event.preventDefault();
+
+            $("#estiloso2").attr('hidden', false);
+
+        })    
+    
+        $(".trocastyle").on("click", function() {
+
+            var cssclass = $(this).attr("href"); 
+
+            $("#style2").attr("href", cssclass);
+        
+            $("#estiloso2").click(function(event){
+            event.preventDefault();
+
+            $("#estiloso").attr('hidden', false);
+            }) 
+
+        });
+        });
+     </script>
+     <script type="text/javascript" src="script.js"></script>
+     <script type="text/javascript" src="teclado.js"></script>
+</body>
+</html>
